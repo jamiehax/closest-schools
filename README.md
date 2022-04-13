@@ -1,2 +1,4 @@
 # closest-schools
-Algorithm to find the two closest points (2D) in O(nlogn)
+Algorithm to find the two closest points (2D) from a set in O(nlogn)
+
+Recursive divid and conquer algorithm to find the two closest 2D points from a set in O(nlogn) time. This is implemented on the Vermont public school system through open access data available on http://geodata.vermont.gov/datasets/vt-school-locations-k-12. 
