@@ -1,6 +1,6 @@
 package ClosestSchools;
 /*
-* Author:
+* Author: Jamie Hackney
 * Implements the closest pair of points recursive algorithm
 * on locations of K-12 schools in Vermont obtained from http://geodata.vermont.gov/datasets/vt-school-locations-k-12
 
@@ -25,12 +25,9 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 
 		// Creates an ArrayList containing School objects from the .csv file
-		// Based on
-		// https://stackoverflow.com/questions/49599194/reading-csv-file-into-an-arrayliststudent-java
+		// From: https://stackoverflow.com/questions/49599194/reading-csv-file-into-an-arrayliststudent-java
 		String line = null;
 		ArrayList<School> schoolList = new ArrayList<School>();
-		// You may have to adjust the file address in the following line to your
-		// computer
 		BufferedReader br = new BufferedReader(new FileReader("ClosestSchools/Data/VT_School_Locations__K12(1).csv"));
 		if ((line = br.readLine()) == null) {
 			return;
@@ -40,8 +37,7 @@ public class Main {
 			schoolList.add(new School(temp[4], Double.parseDouble(temp[0]), Double.parseDouble(temp[1])));
 		}
 
-		// Preprocess the data to create two sorted arrayLists (one by X-coordinate and
-		// one by Y-coordinate):
+		// Preprocess the data to create two sorted arrayLists (one by X-coordinate and one by Y-coordinate):
 		ArrayList<School> Xsorted = new ArrayList<School>();
 		ArrayList<School> Ysorted = new ArrayList<School>();
 		Collections.sort(schoolList, new SortbyX());
@@ -57,10 +53,10 @@ public class Main {
 
 	}
 
+	// Recursive divide and conquer algorithm for closest points
+	// sLx should be sorted by x coordinate and sLy should be sorted by y coordinate
+	// Returns an array containing the two closest School objects
 	public static School[] ClosestPoints(ArrayList<School> sLx, ArrayList<School> sLy) {
-		// Recursive divide and conquer algorithm for closest points
-		// sLx should be sorted by x coordinate and sLy should be sorted by y coordinate
-		// Returns an array containing the two closest School objects
 
 		School[] closestPair = new School[2];
 
